@@ -1,0 +1,57 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      decimal.js:
+        specifier: ^10.6.0
+        version: 10.6.0
+      dotenv:
+        specifier: ^16.6.1
+        version: 16.6.1
+      login-zju:
+        specifier: ^1.0.6
+        version: 1.0.7
+      uuid:
+        specifier: ^11.1.0
+        version: 11.1.0
+
+packages:
+
+  chalk@5.6.2:
+    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+
+  decimal.js@10.6.0:
+    resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
+
+  login-zju@1.0.7:
+    resolution: {integrity: sha512-7ZZox6asBRtL1q6VOezVKV0ovqdbj+yTCNYGtl97vdsKiKQem8Mj7hYTDehenB09qk8TLmW88OiEaaH4OIVpGA==}
+
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
+    hasBin: true
+
+snapshots:
+
+  chalk@5.6.2: {}
+
+  decimal.js@10.6.0: {}
+
+  dotenv@16.6.1: {}
+
+  login-zju@1.0.7: {}
+
+  uuid@11.1.0: {}

@@ -2,6 +2,8 @@
 
 The certain script allowing you learning better in ZJU with rollcall support.
 
+该项目源自[ZJU-live-better](https://github.com/5dbwat4/ZJU-live-better)中的脚本之一。
+
 ## 使用方式
 
 简易：

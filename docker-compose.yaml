@@ -1,0 +1,8 @@
+services:
+  autosign:
+    build:
+      context: .
+    image: zju-autosign
+    env_file:
+      - .env
+    restart: unless-stopped

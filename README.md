@@ -25,7 +25,20 @@ The certain script allowing you learning better in ZJU with rollcall support.
 
 ## docker
 
-<!-- 提供了基于docker的部署方式。 -->
+提供了基于 Docker 的部署方式。
+
+1. 参考`.env.example`创建`.env`文件，并填写相关信息；
+2. 构建并启动容器：
+
+```bash
+docker compose up -d --build
+```
+
+3. 查看日志：
+
+```bash
+docker compose logs -f autosign
+```
 
 ## 免责声明
 

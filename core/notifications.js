@@ -7,9 +7,11 @@ import dingTalk from "./dingtalk-webhook.js";
 export function notify(event,message) {
     if(event==="debug"){
         console.log(message);
+        return Promise.resolve();
     }
     if(event==="default"){
         console.log(message);
-        dingTalk(message);
+        return dingTalk(message);
     }
+    return Promise.resolve();
 }

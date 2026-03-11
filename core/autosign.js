@@ -13,6 +13,44 @@ const courses = new COURSES(
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 let requestCount = 0;
+let isShuttingDown = false;
+
+async function notifyShutdown(reason, exitCode, error = null) {
+  if (isShuttingDown) {
+    return;
+  }
+
+  isShuttingDown = true;
+
+  const errorText = error ? `\nError: ${error.stack || error}` : "";
+  try {
+    await notify("default", `[Auto Sign-in] Logged out (${reason}).${errorText}`);
+  } catch (notifyError) {
+    console.error("[Auto Sign-in] Failed to send shutdown notification:", notifyError);
+  }
+
+  process.exit(exitCode);
+}
+
+function registerLifecycleNotifications() {
+  process.on("SIGINT", () => {
+    void notifyShutdown("SIGINT", 0);
+  });
+
+  process.on("SIGTERM", () => {
+    void notifyShutdown("SIGTERM", 0);
+  });
+
+  process.on("uncaughtException", (error) => {
+    console.error("[Auto Sign-in] Uncaught exception:", error);
+    void notifyShutdown("uncaughtException", 1, error);
+  });
+
+  process.on("unhandledRejection", (reason) => {
+    console.error("[Auto Sign-in] Unhandled rejection:", reason);
+    void notifyShutdown("unhandledRejection", 1, reason);
+  });
+}
 
 function isAlreadyOnCall(rollcall) {
   return (
@@ -23,6 +61,8 @@ function isAlreadyOnCall(rollcall) {
   );
 }
 
+registerLifecycleNotifications();
+void notify("default", `[Auto Sign-in] Logged in as ${process.env.ZJU_USERNAME}`);
 
 async function handleRollcall(rollcall) {
   const rollcallId = rollcall.rollcall_id;
